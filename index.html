@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GoalZone | Your Football Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="#home" class="logo">⚽ GoalZone</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+    <label for="nav-toggle" class="hamburger" aria-hidden="true"><span></span><span></span><span></span></label>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#leagues">Leagues</a></li>
+      <li><a href="#players">Players</a></li>
+      <li><a href="#matches">Matches</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <picture>
+    <source media="(min-width: 768px)" srcset="images/pitch-large.svg">
+    <img src="images/pitch-small.svg" alt="Football pitch from above" class="hero-img">
+  </picture>
+  <div class="hero-text">
+    <h1>Live the Beautiful Game</h1>
+    <p>News, fixtures and stars from the world of football.</p>
+    <a href="#matches" class="btn">View Fixtures</a>
+  </div>
+</section>
+
+<main>
+  <section id="about" class="section">
+    <h2>About Football</h2>
+    <div class="grid two">
+      <p>Football is the world's most popular sport, played by more than 250 million people in over 200 countries. Two teams of eleven players try to score by getting the ball into the opponent's goal, without using their hands.</p>
+      <p>From local pitches to packed stadiums, the game brings communities together. GoalZone helps you follow your favourite clubs, learn about the leagues and never miss a match.</p>
+    </div>
+  </section>
+
+  <section id="leagues" class="section alt">
+    <h2>Top Competitions</h2>
+    <div class="grid cards">
+      <article class="card">
+        <img src="images/league.svg" alt="Football on a blue background" loading="lazy">
+        <div class="card-body"><h3>Domestic Leagues</h3><p>Premier League, La Liga, Serie A, Bundesliga and more – week after week of drama.</p></div>
+      </article>
+      <article class="card">
+        <img src="images/trophy.svg" alt="Golden trophy" loading="lazy">
+        <div class="card-body"><h3>World Cup</h3><p>The biggest tournament on Earth, held every four years with nations competing for glory.</p></div>
+      </article>
+      <article class="card">
+        <img src="images/stadium.svg" alt="Stadium seen from above" loading="lazy">
+        <div class="card-body"><h3>Club Football</h3><p>UEFA Champions League nights bring Europe's best clubs head to head.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="players" class="section">
+    <h2>Star Players</h2>
+    <div class="grid players">
+      <div class="player"><div class="avatar">10</div><h3>Lionel Messi</h3><p>Forward · Argentina</p></div>
+      <div class="player"><div class="avatar">7</div><h3>Cristiano Ronaldo</h3><p>Forward · Portugal</p></div>
+      <div class="player"><div class="avatar">9</div><h3>Erling Haaland</h3><p>Striker · Norway</p></div>
+      <div class="player"><div class="avatar">7</div><h3>Kylian Mbappé</h3><p>Forward · France</p></div>
+    </div>
+    
+    <h3 class="subhead">Explore Team Squads</h3>
+
+    <div class="league-picker">
+      <select id="team-league-select" aria-label="Choose a league">
+        <option value="">-- Select a league --</option>
+        <option value="4328">English Premier League</option>
+        <option value="4335">Spanish La Liga</option>
+        <option value="4332">Italian Serie A</option>
+        <option value="4331">German Bundesliga</option>
+        <option value="4334">French Ligue 1</option>
+      </select>
+
+      <select id="team-select" aria-label="Choose a team" disabled>
+        <option value="">-- Select a team --</option>
+      </select>
+    </div>
+
+    <p id="squad-status" class="status">Choose a league, then a team, to see its squad.</p>
+    <div id="squad-grid" class="squad-grid"></div>
+
+    <!-- Player details pop-up -->
+    <dialog id="player-dialog" class="player-dialog">
+      <button type="button" id="dialog-close" class="dialog-close" aria-label="Close">&times;</button>
+      <div id="player-dialog-body"></div>
+    </dialog>
+  </section>
+
+  <section id="matches" class="section alt">
+    <h2>Upcoming Fixtures</h2>
+
+    <div class="league-picker">
+      <label for="league-select">Choose a league:</label>
+      <select id="league-select">
+        <option value="">-- Select a league --</option>
+        <option value="4328">English Premier League</option>
+        <option value="4335">Spanish La Liga</option>
+        <option value="4332">Italian Serie A</option>
+        <option value="4331">German Bundesliga</option>
+        <option value="4334">French Ligue 1</option>
+        <option value="4480">UEFA Champions League</option>
+      </select>
+    </div>
+
+    <p id="fixtures-status" class="status">Select a league to see its next 3 fixtures.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Date</th><th>Home</th><th>Away</th><th>Time</th></tr></thead>
+        <tbody id="fixtures-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Join the Fan Club</h2>
+    <form class="form" onsubmit="event.preventDefault(); alert('Thanks for joining!'); this.reset();">
+      <input type="text" placeholder="Your name" required>
+      <input type="email" placeholder="Your email" required>
+      <select><option>Favourite league</option><option>Premier League</option><option>La Liga</option><option>Serie A</option><option>Bundesliga</option></select>
+      <button class="btn" type="submit">Sign Up</button>
+    </form>
+  </section>
+</main>
+
+<footer class="footer">
+  <p>© 2025 GoalZone · Built for Lab 7 – Responsive Web Design</p>
+</footer>
+
+</body>
+
+<script src="js/script.js" defer></script>
+</html>
